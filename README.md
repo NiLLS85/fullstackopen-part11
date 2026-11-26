@@ -11,6 +11,10 @@ Aplicación desplegada en Render: https://fs-pokedex-nills.onrender.com (la inst
 - `.github/workflows/hello.yml`: workflow de prueba (ejercicios 3 y 4).
 - `.github/workflows/pipeline.yml`: pipeline de despliegue con lint, build, tests unitarios (Jest) y tests end-to-end (Playwright).
 
+## Cómo se trabaja
+
+Los cambios no se suben directamente a `main`: se hacen en una rama y entran con un pull request. El pipeline se ejecuta en cada pull request (al abrirlo y con cada commit nuevo) y otra vez al fusionarlo en `main`.
+
 ## Comandos
 
 Instalar las dependencias con `npm install` y después:
