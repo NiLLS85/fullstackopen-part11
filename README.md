@@ -4,6 +4,8 @@ Ejercicios de la parte 11 (integración y despliegue continuos) del curso [Full 
 
 El proyecto de ejemplo es la Pokédex del curso: un frontend en React (Webpack) y un pequeño servidor Express que sirve la versión de producción. Sobre él se monta un pipeline de GitHub Actions.
 
+Aplicación desplegada en Render: https://fs-pokedex-nills.onrender.com (la instancia gratuita tarda unos segundos en despertar).
+
 ## Workflows
 
 - `.github/workflows/hello.yml`: workflow de prueba (ejercicios 3 y 4).
