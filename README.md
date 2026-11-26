@@ -15,6 +15,8 @@ Aplicación desplegada en Render: https://fs-pokedex-nills.onrender.com (la inst
 
 Los cambios no se suben directamente a `main`: se hacen en una rama y entran con un pull request. El pipeline se ejecuta en cada pull request (al abrirlo y con cada commit nuevo) y otra vez al fusionarlo en `main`.
 
+Cada fusión en `main` que pasa el pipeline se despliega en Render y recibe una etiqueta de versión (`0.0.1`, `0.0.2`...). Si algún commit del cambio lleva `#skip` en el mensaje, no se despliega ni se etiqueta.
+
 ## Comandos
 
 Instalar las dependencias con `npm install` y después:
