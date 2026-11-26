@@ -6,6 +6,11 @@ El proyecto de ejemplo es la Pokédex del curso: un frontend en React (Webpack) 
 
 Aplicación desplegada en Render: https://fs-pokedex-nills.onrender.com (la instancia gratuita tarda unos segundos en despertar).
 
+## Enlaces
+
+- Pokédex desplegada: https://fs-pokedex-nills.onrender.com
+- Aplicación propia con su pipeline de CI/CD (ejercicios 21 y 22, agenda telefónica): https://github.com/NiLLS85/fullstackopen-part11-phonebook
+
 ## Workflows
 
 - `.github/workflows/hello.yml`: workflow de prueba (ejercicios 3 y 4).
