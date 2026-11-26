@@ -95,3 +95,33 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DEFAULT_BUMP: patch
+
+  # Ejercicio 18: avisos en Discord. El webhook va en el secreto DISCORD_WEBHOOK.
+  notify_success:
+    needs: [tag_release]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aviso de nueva versión desplegada
+        uses: sarisia/actions-status-discord@74e2ad0c4e57ca8b9ba6aee75d5a7841497bbb87 # v1.16.1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: Success
+          title: Nueva versión de la Pokédex desplegada
+          description: "Desplegada en https://fs-pokedex-nills.onrender.com por ${{ github.actor }}."
+          color: 0x2ecc71
+
+  notify_failure:
+    needs: [lint, unit_tests, build, e2e_tests, deploy, tag_release]
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aviso de build roto
+        uses: sarisia/actions-status-discord@74e2ad0c4e57ca8b9ba6aee75d5a7841497bbb87 # v1.16.1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          status: Failure
+          title: El build de la Pokédex ha fallado
+          description: |
+            Commit ${{ github.event.head_commit.url || github.event.pull_request.html_url }} de ${{ github.actor }}.
+            Revisa el job que ha fallado en ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          color: 0xe74c3c

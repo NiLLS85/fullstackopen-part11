@@ -14,7 +14,7 @@ Aplicación desplegada en Render: https://fs-pokedex-nills.onrender.com (la inst
 ## Workflows
 
 - `.github/workflows/hello.yml`: workflow de prueba (ejercicios 3 y 4).
-- `.github/workflows/pipeline.yml`: pipeline de despliegue repartido en jobs. `lint`, `unit_tests` (Jest) y `build` van en paralelo; `e2e_tests` (Playwright) usa el build guardado como artefacto; `deploy` avisa a Render y `tag_release` crea la etiqueta de versión.
+- `.github/workflows/pipeline.yml`: pipeline de despliegue repartido en jobs. `lint`, `unit_tests` (Jest) y `build` van en paralelo; `e2e_tests` (Playwright) usa el build guardado como artefacto; `deploy` avisa a Render y `tag_release` crea la etiqueta de versión. Al final, `notify_success` manda un aviso a Discord cuando sale una versión nueva y `notify_failure` otro, con el commit y el enlace a la ejecución, si algo falla (ejercicio 18). El webhook de Discord está en el secreto `DISCORD_WEBHOOK`, nunca en el código.
 - `.github/workflows/health-check.yml`: comprobación diaria de que la aplicación publicada responde en `/health`. También se puede lanzar a mano desde la pestaña Actions, incluso con otra URL para simular una caída.
 
 ## Cómo se trabaja
